@@ -1,0 +1,115 @@
+
+      <div class="panel panel-default">
+      
+        <div class="panel-heading">
+          <span class="lead">Описание задания</span>
+        </div>
+        
+        <div class ="panel-body">
+        <div class="formcontainer">
+        
+          <form ng-submit="vm.submit()" name="form" class="form-horizontal">
+          
+            <div class="row">
+              <div class="form-group col-md-12" ng-class="{'has-error': form.name.$dirty && form.name.$error.required }">
+                <label class="col-md-3 control-label" for="name">Название задачи</label>
+                <div class="col-md-7">
+                  <input type="text" ng-model="vm.task.name" name="name" class="username form-control input-sm" placeholder="Название задачи" required/>
+                  <span ng-show="form.name.$error.required && form.name.$dirty" class="help-block">This is a required field</span>
+                </div>
+              </div>
+            </div>
+              
+            <div class="row">
+              <div class="form-group col-md-12" ng-class="{'has-error': form.description.$dirty && form.description.$error.required }">
+                <label class="col-md-3 control-label" for="description">Описание задачи</label>
+                <div class="col-md-7">
+                  <textarea ng-model="vm.task.description" class="form-control" name="description" rows="3" placeholder="Описание задачи" required/>
+                  <span ng-show="form.description.$error.required && form.description.$dirty" class="help-block">This is a required field</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" ng-show="vm.task.id">
+              <div class="form-group col-md-12">
+                <label class="col-md-3 control-label" for="description">Дата взятия задачи</label>
+                <div class="col-md-7">
+                  <span ng-bind="vm.task.dateFormat"></span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label class="col-md-3 control-label" for="priority">Приоритет</label>
+                <div class="col-md-7">
+                
+                  <select class="btn btn-primary" ng-model="vm.task.priority" >
+                    <option value="low">Низкий</option>
+                    <option value="normal">Обычный</option>
+                    <option value="high">Высокий</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12" ng-class="{'has-error': form.expectedTime.$dirty && form.expectedTime.$error.required }">
+                <label class="col-md-3 control-label" for="expectedTime">Ожидаемое время выполнения</label>
+                <div class="col-md-7">
+                  <input type="text" ng-model="vm.task.expectedTimeSec" class="form-control" name="expectedTime" id="expectedTime_id" required/>
+                  <span ng-show="form.expectedTime.$error.required && form.expectedTime.$dirty" class="help-block">This is a required field</span>
+                </div>
+              </div>
+            </div>           
+            
+            <div class="row">
+              <div class="form-group col-md-12" ng-class="{'has-error': form.spentTime.$dirty && form.spentTime.$error.required }">
+                <label class="col-md-3 control-label" for="spentTime">Фактическое время выполнения</label>
+                <div class="col-md-7">
+                  <input type="text" ng-model="vm.task.spentTimeSec" class="form-control" name="spentTime" id="spentTime_id" required/>
+                  <span ng-show="form.spentTime.$error.required && form.spentTime.$dirty" class="help-block">This is a required field</span>
+                </div>
+              </div>
+            </div>           
+            
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label class="col-md-3 control-label" for="priority">Статус выполнения</label>
+                <div class="col-md-7">
+                
+                  <select class="btn btn-primary" ng-model="vm.task.status">
+                    <option value="start">Планируется</option>
+                    <option value="doing">В процессе</option>
+                    <option value="done">Выполнено</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="container">
+            <div class="row">
+              <div class="form-actions pull-right">
+                <input type="submit"  value="{{vm.task.id ? 'Update' : 'Save'}}" class="btn btn-primary" ng-disabled="form.$invalid"/>
+                <img ng-if="vm.dataSaving" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                <a href="#!/taskslist" class="btn btn-danger">Cancel</a>
+              </div>
+            </div>
+            </div>
+
+          </form>
+          
+        </div>
+        </div>
+      </div>
+      
+      <link rel="stylesheet" href="./lib/bootstrap-duration-picker.css">
+      <script src="./lib/bootstrap-duration-picker.js"></script>
+      <script>
+        $(document).ready(function(){
+          $('#expectedTime_id').durationPicker();
+          $('#spentTime_id').durationPicker();
+        });
+      </script>
+
+      

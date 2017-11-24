@@ -1,0 +1,62 @@
+[
+{
+"username": "Slava",
+"tasks":[
+	{
+	"id": 1,
+	"name": "task 1",
+	"description": "aaa",
+	"status": "start",
+	"date": "2017-11-12T14:48:00",
+	"priority": "normal",
+	"expectedTime": 40,
+	"spentTime": 56
+	},
+	{
+	"id": 2,
+	"name": "task 2",
+	"description": "bbb",
+	"status": "done",
+	"date": "2017-11-13T17:00:00",
+	"priority": "low",
+	"expectedTime": 134,
+	"spentTime": 57
+	},
+	{
+	"id": 3,
+	"name": "task 3",
+	"description": "abb",
+	"status": "doing",
+	"date": "2017-11-14T20:50:00",
+	"priority": "high",
+	"expectedTime": 567,
+	"spentTime": 434
+	}
+]
+},
+{
+"username": "Kira",
+"tasks":[
+	{
+	"id": 1,
+	"name": "Задача 1",
+	"description": "aaaaaaaa",
+	"status": "start",
+	"date": "2017-11-12T14:48:00",
+	"priority": "normal",
+	"expectedTime": 40,
+	"spentTime": 56
+	},
+	{
+	"id": 2,
+	"name": "task 2",
+	"description": "bbbaaaaaaaaaaa",
+	"status": "done",
+	"date": "2017-11-13T17:00:00",
+	"priority": "low",
+	"expectedTime": 134,
+	"spentTime": 57
+	}
+]
+}
+]
